@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter App Integration Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col h-screen">
+    <header class="h-20 flex items-center justify-center rounded-md m-4 bg-gray-200">Header</header>
+    <div class="flex flex-1 overflow-hidden">
+        <nav class="w-52 flex items-center justify-center border-dashed border-2 rounded-md m-4 bg-gray-200">Side Nav</nav>
+        <div class="flex-1 overflow-auto">
+            <iframe src="https://betaweb.tab.com.au" frameborder="0" class="border-0 w-full h-full"></iframe>
+        </div>
+        <aside class="w-52 flex items-center justify-center border-dashed border-2 rounded-md m-4 bg-gray-200">Right Sidebar</aside>
+    </div>
+    <footer class="h-20	flex items-center justify-center border-dashed border-2 rounded-md m-4 bg-gray-200">Footer</footer>
+</body>
+</html>

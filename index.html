@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flutter App Integration Layout</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #F2F2F2;
+        }
+    </style>
 </head>
 <body class="flex flex-col h-screen">
     <header class="h-20 flex items-center justify-center rounded-md m-4 bg-gray-200">Header</header>
     <div class="flex flex-1 overflow-hidden">
-        <nav class="w-52 flex items-center justify-center border-dashed border-2 rounded-md m-4 bg-gray-200">Side Nav</nav>
-        <div class="flex-1 overflow-auto">
-            <iframe src="https://betaweb.tab.com.au/home" frameborder="0" class="border-0 w-full h-full"></iframe>
+        <nav class="w-52 flex flex-col items-center justify-start border-dashed border-2 rounded-md m-4 bg-gray-200 py-4">
+            <!-- Updated menu items with target attribute -->
+            <a href="https://betaweb.tab.com.au/home" target="contentiframe" class="text-gray-600 hover:text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-150 ease-in-out w-full text-center">Home</a>
+            <a href="https://betaweb.tab.com.au/racing" target="contentiframe" class="text-gray-600 hover:text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-150 ease-in-out w-full text-center">Racing</a>
+            <a href="https://betaweb.tab.com.au/sports" target="contentiframe" class="text-gray-600 hover:text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-150 ease-in-out w-full text-center">Sports</a>
+            <a href="https://betaweb.tab.com.au/setting" target="contentiframe" class="text-gray-600 hover:text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors duration-150 ease-in-out w-full text-center">More</a>
+        </nav>
+        <div class="flex-1 overflow-auto py-4">
+            <div class="relative overflow-hidden h-full">
+                <!-- Added name attribute to iframe -->
+                <iframe name="contentiframe" src="https://betaweb.tab.com.au/home" frameborder="0" class="absolute inset-0 w-full h-full" style="transform: translateY(-55px); height: calc(100% + 105px);"></iframe>
+            </div>
         </div>
         <aside class="w-52 flex items-center justify-center border-dashed border-2 rounded-md m-4 bg-gray-200">Right Sidebar</aside>
     </div>

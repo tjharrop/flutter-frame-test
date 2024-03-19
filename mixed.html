@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixed layouts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .theme-slate .menu-link { background-color: transparent; color: #ffffff; }
+        .theme-slate .menu-link:hover { text-decoration: underline; }
+        .theme-slate .content { color: #1e293b; }
+        .theme-slate header { background-color: #1e293b; }
+
+        .theme-red .menu-link { background-color: transparent; color: #ffffff; }
+        .theme-red .menu-link:hover { text-decoration: underline; }
+        .theme-red .content { color: #b91c1c; }
+        .theme-red header { background-color: #991b1b; }
+    </style>
+</head>
+<body class="text-slate-700 bg-slate-100 theme-red">
+    <header class="w-full py-4">
+        <nav class="max-w-screen-xl mx-auto flex justify-center gap-4">
+            <a href="#home" class="menu-link px-3 py-2 rounded-md" onclick="updateContent('home')">Home</a>
+            <a href="#racing" class="menu-link px-3 py-2 rounded-md" onclick="updateContent('racing')">Racing</a>
+            <a href="#sports" class="menu-link px-3 py-2 rounded-md" onclick="updateContent('sports')">Sports</a>
+            <a href="#register" class="menu-link px-3 py-2 rounded-md" onclick="updateContent('register')">Register</a>
+            <a href="#login" class="menu-link px-3 py-2 rounded-md" onclick="updateContent('login')">Login</a>
+        </nav>
+    </header>
+    <section class="w-full min-h-screen flex items-center justify-center">
+        <div id="pageContent" class="text-xl font-semibold content">Home page content</div>
+    </section>
+    <script>
+        function updateContent(page) {
+            const contentMap = {
+                'home': 'Home page content (flutter)',
+                'racing': 'Racing page content',
+                'sports': 'Sports page content',
+                'register': 'Register page content (flutter)',
+                'login': 'Login page content'
+            };
+            
+            const body = document.querySelector('body');
+            const content = document.getElementById('pageContent');
+            const links = document.querySelectorAll('.menu-link');
+
+            content.innerText = contentMap[page] || 'Default content';
+            if (page === 'home' || page === 'register') {
+                body.classList.remove('theme-slate');
+                body.classList.add('theme-red');
+            } else {
+                body.classList.remove('theme-red');
+                body.classList.add('theme-slate');
+            }
+        }
+    </script>
+</body>
+</html>
